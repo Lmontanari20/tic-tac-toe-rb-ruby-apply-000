@@ -36,16 +36,17 @@ def valid_move?(board, index)
   index >= 0 && index <= 8 && !position_taken?(board,index)
 end
 
-def turn(board, character)
+def turn(board)
   puts "Welcome! Take your turn by inputting 1-9:"
   input = gets.chomp
   index = input_to_index(input)
+  count = turn_count(board)
+  char = count % 2 == 0 ? "X" : "O"
   if valid_move?(board, index)
-    board = move(board,index, character)
+    board = move(board,index, char)
     display_board(board)
-    return index + 1
   else 
-    turn(board,character)
+    turn(board)
   end
 end
 
@@ -112,9 +113,7 @@ end
 
 def play(board)
   while !over?(board)
-    count = turn_count(board)
-    char = count % 2 == 0 ? "X" : "O"
-    turn(board, char)
+    turn(board)
   end
   
   if won(board)
