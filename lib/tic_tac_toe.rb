@@ -65,9 +65,9 @@ end
 
 def won(board)
   WIN_COMBINATIONS.each do |combo|
-    index1 == combo[0]
-    index2 == combo[1]
-    index3 == combo[2]
+    index1 = combo[0]
+    index2 = combo[1]
+    index3 = combo[2]
     
     if (board[index1] == "X" && board[index2] == "X" && board[index3] == "X")
       return combo
