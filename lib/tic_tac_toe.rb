@@ -25,6 +25,7 @@ def move(board, index, character)
   if valid_move?(board,index)
     board[index] == character
   end
+  board
 end
 
 def position_taken?(board, index)
@@ -40,7 +41,7 @@ def turn(board, character)
   input = gets.chomp
   index = input_to_index(input)
   if valid_move?(board, index)
-    move(board,index, character)
+    board = move(board,index, character)
     display_board(board)
     return
   else 
