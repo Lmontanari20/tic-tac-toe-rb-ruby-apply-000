@@ -65,7 +65,7 @@ def current_player(board)
   count % 2 == 0? "X" : "O"
 end
 
-def won(board)
+def won?(board)
   WIN_COMBINATIONS.each do |combo|
     index1 = combo[0]
     index2 = combo[1]
@@ -90,21 +90,21 @@ def full?(board)
 end
 
 def draw?(board)
-  if !won(board) && full?(board)
+  if !won?(board) && full?(board)
     return true
   end
   false
 end
 
 def over?(board)
-  if draw?(board) || full?(board) || won(board)
+  if draw?(board) || full?(board) || won?(board)
     return true
   end
   false
 end
 
 def winner(board)
-  index = won(board)
+  index = won?(board)
   if index != false
     return board[index[0]]
   end
@@ -116,7 +116,7 @@ def play(board)
     turn(board)
   end
   
-  if won(board)
+  if won?(board)
     puts "Congratulations to the winner #{winner(board)}"
   else 
     puts "The game ended up in a draw"
