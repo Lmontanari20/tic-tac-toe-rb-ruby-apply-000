@@ -108,7 +108,7 @@ def winner(board)
   if index != false
     return board[index[0]]
   end
-  return false
+  return nil
 end
 
 def play(board)
