@@ -23,7 +23,7 @@ end
 
 def move(board, index, character)
   if valid_move?(board,index)
-    board[index] == character
+    board[index] = character
   end
   board
 end
